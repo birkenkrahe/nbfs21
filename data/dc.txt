@@ -1,0 +1,7 @@
+84	2021-08-26	"Basics"
+84	2021-09-02	"Vectors"
+64	2021-09-16	"Matrices"
+57	2021-09-23	"Factors"
+50	2021-10-07	"Dataframes"
+42	2021-10-18	"Import"
+50	2021-10-21	"Graphics"
