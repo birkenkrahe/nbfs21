@@ -1,0 +1,21 @@
+#+options: toc:1
+* Introduction
+
+  This notebook is based on "fasteR: Fast Lane to Learning R!" by
+  [[matloff][Norman Matloff (2021)]].
+
+* Lesson 1: Getting Started
+
+  
+  
+  #+begin_src R :session :results output
+    1+1
+  #+end_src
+
+  #+RESULTS:
+  : [1] 2
+
+* References
+
+  <<matloff>> Norman Matloff (26 Aug 2021). fasteR: Fast Lane to
+  Learning R!  [tutorial]. URL: [[https://github.com/matloff/fasteR][github.com]].
