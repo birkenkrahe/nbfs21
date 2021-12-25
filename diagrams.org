@@ -1,5 +1,5 @@
-* Creating simple process diagrams in Emacs (diary entry?)
-
+* Creating simple process diagrams in Emacs
+  
   I needed this because I wanted to make a simple diagram. Usually, I
   would have drawn this in Signavio, or in PowerPoint, made a
   screenshot, saved it and embedded it in the Org-file using Emacs. 4
@@ -14,6 +14,14 @@
   1) [[https://robrohan.com/2015/01/17/poor-mans-uml-artist-mode.html][Poor man's UML / Emacs Artist Mode]] (Rohan, 2015)
   2) [[https://orgmode.org/worg/org-tutorials/org-dot-diagrams.html][Generating simple process diagrams using dot and tables]]
   3) [[https://plantuml.com/emacs][PlantUML and Emacs]] - wrapper to [[http://www.graphviz.org/][GraphViz]]
+
+     For today, I'll only try artist mode, but I'm especially
+     interested in ~PlantUML~, because I want to teach the students to
+     create simple UML diagrams before coding.
+
+     *Note* that this really does not look great on GitHub (Org,
+     Markdown) or HTML. Best look at it in Emacs. For this post, I
+     have inserted screenshots.
 
 * Emacs Artist mode
 
@@ -47,6 +55,8 @@
 
 *** Drawing a poly-line
 
+    This is the example from the vignette:
+    
 	#+begin_example
     M-x artist-mode RET
     C-c C-a p RET
@@ -58,12 +68,13 @@
       \─────────
                 \─────────
                           \─────ooooo
-	                   ──/
-	                 ─/
-	       	      ──/
-	            ────────────
-				\──────────
+                           ──/
+                         ─/
+                      ──/
+                    ────────────
+                                \──────────
 
+                                
 
 ** ascii-art-to-unicode
 
@@ -71,37 +82,21 @@
    [[https://elpa.gnu.org/packages/ascii-art-to-unicode.html][~ascii-art-to-unicode~]], which polishes simple line drawings and
    makes them look much better. Installed it. Example use:
 
-   | M-x artist-mode RET   | Invoke artist mode           |
-   | C-c C-a r             | ~artist-select-op-rectangle~ |
+   | Key sequence        | Action or function           |
+   |---------------------+------------------------------|
+   | M-x artist-mode RET | Invoke artist mode           |
+   | C-c C-a r           | ~artist-select-op-rectangle~ |
 
-   +---------------+
-   |               |
-   |       +-------+--+
-   |       |       |  |
-   |       |       |  |
-   |       |       |  |
-   +-------+-------+  |
-   |          |
-   |          |
-   |          |
-   +----------+
+   [[./img/aa2u.png]]
 
+   | Key sequence    | Action or function |
+   |-----------------+--------------------|
    | C-c C-c         | ~artist-mode-off~  |
    | C-x n n         | ~narrow-to-region~ |
-   | untabify region | ~untabify-region~  |
-   | M-x aa2u RET    |                    |
+   | untabify region | ~untabify~         |
+   | M-x aa2u RET    | Apply aa2u         |
 
-   ┌───────────────┐
-   │               │
-   │       ┌───────┼──┐
-   │       │       │  │
-   │       │       │  │
-   │       │       │  │
-   └───────┼───────┘  │
-   │          │
-   │          │
-   │          │
-   └──────────┘
+   [[./img/aa2u1.png]]
 
    Check the [[https://elpa.gnu.org/packages/ascii-art-to-unicode.html][vignette for aa2u]] for more details.
 
