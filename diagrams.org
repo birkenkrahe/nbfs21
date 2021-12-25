@@ -1,0 +1,115 @@
+* Creating simple process diagrams in Emacs (diary entry?)
+
+  I needed this because I wanted to make a simple diagram. Usually, I
+  would have drawn this in Signavio, or in PowerPoint, made a
+  screenshot, saved it and embedded it in the Org-file using Emacs. 4
+  steps, 4 softwares, and not much to show for it.
+
+  Since I like to do everything in Emacs using the keyboard, I was
+  curious if this can be done using ASCII, without extra tools. I
+  found two ways (in fact, there is a third one, Emacs ~artist~ mode
+  (built into Emacs) and ~ditaa~ (which is no longer distributed with
+  Org).
+
+  1) [[https://robrohan.com/2015/01/17/poor-mans-uml-artist-mode.html][Poor man's UML / Emacs Artist Mode]] (Rohan, 2015)
+  2) [[https://orgmode.org/worg/org-tutorials/org-dot-diagrams.html][Generating simple process diagrams using dot and tables]]
+  3) [[https://plantuml.com/emacs][PlantUML and Emacs]] - wrapper to [[http://www.graphviz.org/][GraphViz]]
+
+* Emacs Artist mode
+
+  #+begin_quote
+  "Most people that see me using it either think it’s the most
+  ridiculous thing they’ve seen, or they think it’s the coolest thing
+  since sliced bread."
+  #+end_quote
+
+  I side with those who think it's cool. Tried this first a couple of
+  years back when I returned to Emacs but haven't used it since.
+
+  There is a video demo (13 min) at the end Rohan's blog post. Here,
+  I'm going to retrace the demo and aim at creating my own simple
+  diagram at the end.
+
+  To make the ASCII art into image files, Rohan suggests [[http://ditaa.sourceforge.net/][~ditaa~]],
+  which apparently was bundled with Org in the past, but is no longer
+  bundled with it.
+
+** Installation
+
+   ~artist~ mode is built in.
+
+   #+begin_quote
+   "Artist is an Emacs lisp package that allows you to draw lines,
+   rectangles, squares, poly-lines, ellipses and circles by using your
+   mouse and/or keyboard. The shapes are made up with the ascii
+   characters |, -, / and \."  ([[https://www.emacswiki.org/emacs/ArtistMode][Source: EmacsWiki]])
+   #+end_quote
+
+*** Drawing a poly-line
+
+	#+begin_example
+    M-x artist-mode RET
+    C-c C-a p RET
+    RET
+	#+end_example
+
+
+──────f
+      \─────────
+                \─────────
+                          \─────ooooo
+	                   ──/
+	                 ─/
+	       	      ──/
+	            ────────────
+				\──────────
+
+
+** ascii-art-to-unicode
+
+   I found another neat addition in the package list,
+   [[https://elpa.gnu.org/packages/ascii-art-to-unicode.html][~ascii-art-to-unicode~]], which polishes simple line drawings and
+   makes them look much better. Installed it. Example use:
+
+   | M-x artist-mode RET   | Invoke artist mode           |
+   | C-c C-a r             | ~artist-select-op-rectangle~ |
+
+   +---------------+
+   |               |
+   |       +-------+--+
+   |       |       |  |
+   |       |       |  |
+   |       |       |  |
+   +-------+-------+  |
+   |          |
+   |          |
+   |          |
+   +----------+
+
+   | C-c C-c         | ~artist-mode-off~  |
+   | C-x n n         | ~narrow-to-region~ |
+   | untabify region | ~untabify-region~  |
+   | M-x aa2u RET    |                    |
+
+   ┌───────────────┐
+   │               │
+   │       ┌───────┼──┐
+   │       │       │  │
+   │       │       │  │
+   │       │       │  │
+   └───────┼───────┘  │
+   │          │
+   │          │
+   │          │
+   └──────────┘
+
+   Check the [[https://elpa.gnu.org/packages/ascii-art-to-unicode.html][vignette for aa2u]] for more details.
+
+* Org Tables
+
+  This approach only requires vanilla Org-mode
+* PlantUML
+* References
+
+  Rohan (Jan 17, 2015). Poor mans UML / Emacs Artist Mode [blog]. [[https://robrohan.com/2015/01/17/poor-mans-uml-artist-mode.html][URL:
+  robrohan.com]].
